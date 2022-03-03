@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Home</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<h2>Update CurvePoint</h2>
+	</div>
+
+	<div class="row">
+		<form action="#" th:action="@{/curvePoint/update/{id}(id=${curvePoint.id})}" th:object="${curvePoint}" method="post" class="form-horizontal" style="width: 100%">
+			<!--
+			TODO: Create a form to edit the values of CurvePoint, there are 2 buttons: Update data and Cancel to the Curve Point
+			 -->
+
+			<div class="form-group">
+				<label for="curveIdInput">Curve Id</label>
+				<br>
+				<input
+						type="text" th:field="*{curveId}" class="form-control" id="curveIdInput"
+						aria-describedby="curveIdHelp" placeholder="curve id">
+				<div th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}">curveId can not be null</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="termInput">Term</label>
+				<br>
+				<input
+						type="text" th:field="*{term}" class="form-control" id="termInput"
+						aria-describedby="termHelp" placeholder="Term">
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="valueInput">Value</label>
+				<br>
+				<input
+						type="text" th:field="*{value}" class="form-control" id="valueInput"
+						aria-describedby="valueHelp" placeholder="Value">
+			</div>
+
+			<button type="submit" class="btn btn-primary">Edit</button>
+
+
+		</form>
+	</div>
+
+</div>
+</body>
+</html>
