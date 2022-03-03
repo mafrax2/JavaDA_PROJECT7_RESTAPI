@@ -38,6 +38,16 @@
 			</thead>
 			<tbody>
 			<!-- TODO: Show all CurvePoint to the table, the action column will have Edit & Delete buttons -->
+			<tr th:if="${allCurvePoints==null or allCurvePoints.isEmpty()}">
+				<td colspan="5">No Curve Point</td>
+			</tr>
+			<tr th:each="curvePoint: ${allCurvePoints}">
+				<td><span th:text="${curvePoint.id}"> Id </span></td>
+				<td><span th:text="${curvePoint.curveId}"> CurvePointId </span></td>
+				<td><span th:text="${curvePoint.term}"> Term </span></td>
+				<td><span th:text="${curvePoint.value}"> Value </span></td>
+				<td><span> <a th:href="@{/curvePoint/update/{id}(id=${curvePoint.id})}">edit</a> | <a th:href="@{/curvePoint/delete/{id}(id=${curvePoint.id})}">delete</a></span></td>
+			</tr>
 			</tbody>
 		</table>
 	</div>

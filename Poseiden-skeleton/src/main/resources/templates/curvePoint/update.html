@@ -17,6 +17,35 @@
 			<!--
 			TODO: Create a form to edit the values of CurvePoint, there are 2 buttons: Update data and Cancel to the Curve Point
 			 -->
+
+			<div class="form-group">
+				<label for="curveIdInput">Curve Id</label>
+				<br>
+				<input
+						type="text" th:field="*{curveId}" class="form-control" id="curveIdInput"
+						aria-describedby="curveIdHelp" placeholder="curve id">
+				<div th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}">curveId can not be null</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="termInput">Term</label>
+				<br>
+				<input
+						type="text" th:field="*{term}" class="form-control" id="termInput"
+						aria-describedby="termHelp" placeholder="Term">
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="valueInput">Value</label>
+				<br>
+				<input
+						type="text" th:field="*{value}" class="form-control" id="valueInput"
+						aria-describedby="valueHelp" placeholder="Value">
+			</div>
+
+			<button type="submit" class="btn btn-primary">Edit</button>
+
+
 		</form>
 	</div>
 
