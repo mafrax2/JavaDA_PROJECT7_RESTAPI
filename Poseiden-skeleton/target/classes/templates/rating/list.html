@@ -39,6 +39,17 @@
 			</thead>
 			<tbody>
 			<!-- TODO: Show all Rating to the table, the Action column will have Edit & Delete buttons -->
+			<tr th:if="${allRatings==null or allRatings.isEmpty()}">
+				<td colspan="5">No Rating</td>
+			</tr>
+			<tr th:each="rating: ${allRatings}">
+				<td><span th:text="${rating.id}"> Id </span></td>
+				<td><span th:text="${rating.moodysRating}"> moodysRating </span></td>
+				<td><span th:text="${rating.sandPRating}"> sandPRating </span></td>
+				<td><span th:text="${rating.fitchRating}"> fitchRating </span></td>
+				<td><span th:text="${rating.orderNumber}"> order </span></td>
+				<td><span> <a th:href="@{/rating/update/{id}(id=${rating.id})}">edit</a> | <a th:href="@{/rating/delete/{id}(id=${rating.id})}">delete</a></span></td>
+			</tr>
 			</tbody>
 		</table>
 	</div>

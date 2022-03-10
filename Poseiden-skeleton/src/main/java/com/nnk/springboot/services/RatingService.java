@@ -18,4 +18,16 @@ public class RatingService {
         return repository.findAll();
     }
 
+    public Rating getRatingById(int id) {
+        return repository.getById(id);
+    }
+
+    public Rating saveRating(Rating rating) {
+        return repository.save(rating);
+    }
+
+    public void deleteRating(int id){
+        repository.deleteById(id);
+    }
+
 }

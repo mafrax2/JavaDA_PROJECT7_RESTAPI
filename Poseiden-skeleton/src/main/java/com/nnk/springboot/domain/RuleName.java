@@ -2,6 +2,7 @@ package com.nnk.springboot.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "rulename")
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class RuleName {
     // TODO: Map columns in data table RULENAME with corresponding java fields
@@ -23,7 +25,13 @@ public class RuleName {
     private String sqlStr;
     private String sqlPart;
 
-    public RuleName(String rule_name, String description, String json, String template, String sql, String sql_part) {
+    public RuleName(String ruleName, String description, String json, String template, String sql, String sqlPart) {
+            this.name = ruleName;
+            this.description = description;
+            this.json=json;
+            this.template =template;
+            this.sqlStr = sql;
+            this.sqlPart = sqlPart;
 
     }
 }

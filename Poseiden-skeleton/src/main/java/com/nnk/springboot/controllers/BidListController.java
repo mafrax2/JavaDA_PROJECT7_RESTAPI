@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.services.BidListService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.List;
 
 
 @Controller
+@Log4j2
 public class BidListController {
     // TODO: Inject Bid service
 
@@ -45,7 +47,7 @@ public class BidListController {
         // TODO: check data valid and save to db, after saving return bid list
 
         service.saveBid(bid);
-
+        log.info("bidList"  + bid.getBidListId() +  "has been added in DB");
         return new ModelAndView("redirect:/bidList/list");
     }
 
@@ -63,6 +65,7 @@ public class BidListController {
                              BindingResult result, Model model) {
         bidList.setBidListId(id);
         service.saveBid(bidList);
+        log.info("bidList"  + id +  "has been updated in DB");
         return "redirect:/bidList/list";
     }
 
@@ -70,6 +73,7 @@ public class BidListController {
     public String deleteBid(@PathVariable("id") Integer id, Model model) {
         // TODO: Find Bid by Id and delete the bid, return to Bid list
         service.deleteBidListById(id);
+        log.info("bidList"  + id +  "has been deleted in DB");
         return "redirect:/bidList/list";
     }
 }

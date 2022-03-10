@@ -29,7 +29,9 @@ public class CurvePoint {
 
 
     public CurvePoint(int i, double v, double v1) {
-
+        this.curveId = i;
+        this.term = v;
+        this.value = v1;
     }
 
     public CurvePoint() {

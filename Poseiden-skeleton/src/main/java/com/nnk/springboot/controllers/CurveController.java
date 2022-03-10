@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.services.CurvePointService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@Log4j2
 public class CurveController {
     // TODO: Inject Curve Point service
 
@@ -48,7 +50,7 @@ public class CurveController {
         }
 
         service.saveCurvePoint(curvePoint);
-
+        log.info("curvePoint"  + curvePoint.getId() +  "has been added in DB");
         return new ModelAndView("redirect:/curvePoint/list");
     }
 
@@ -69,6 +71,7 @@ public class CurveController {
         }
         curvePoint.setId(id);
         service.saveCurvePoint(curvePoint);
+        log.info("curvePoint"  + curvePoint.getId() +  "has been updated in DB");
         return "redirect:/curvePoint/list";
     }
 
@@ -77,6 +80,7 @@ public class CurveController {
         // TODO: Find Curve by Id and delete the Curve, return to Curve list
 
         service.deleteCurvePointById(id);
+        log.info("curvePoint"  + id +  "has been deleted in DB");
         return "redirect:/curvePoint/list";
     }
 }

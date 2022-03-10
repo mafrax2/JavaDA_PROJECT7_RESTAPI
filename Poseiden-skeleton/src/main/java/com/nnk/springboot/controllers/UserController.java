@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
+@Log4j2
 public class UserController {
     @Autowired
     private UserRepository userRepository;
@@ -28,6 +30,7 @@ public class UserController {
 
     @GetMapping("/user/add")
     public String addUser(User bid) {
+
         return "user/add";
     }
 
@@ -37,6 +40,7 @@ public class UserController {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             user.setPassword(encoder.encode(user.getPassword()));
             userRepository.save(user);
+            log.info("user"  + user.getId() +  "has been saved in DB");
             model.addAttribute("users", userRepository.findAll());
             return "redirect:/user/list";
         }
@@ -47,6 +51,7 @@ public class UserController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         user.setPassword("");
+
         model.addAttribute("user", user);
         return "user/update";
     }
@@ -62,6 +67,7 @@ public class UserController {
         user.setPassword(encoder.encode(user.getPassword()));
         user.setId(id);
         userRepository.save(user);
+        log.info("user"  + user.getId() +  "has been updated in DB");
         model.addAttribute("users", userRepository.findAll());
         return "redirect:/user/list";
     }
@@ -70,6 +76,7 @@ public class UserController {
     public String deleteUser(@PathVariable("id") Integer id, Model model) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         userRepository.delete(user);
+        log.info("user"  + id +  "has been deleted from DB");
         model.addAttribute("users", userRepository.findAll());
         return "redirect:/user/list";
     }

@@ -16,4 +16,16 @@ public class TradeService {
     public List<Trade> getAllTrades(){
         return repository.findAll();
     }
+
+    public Trade saveTrade(Trade trade) {
+        return repository.save(trade);
+    }
+
+    public Trade getTradeById(Integer id) {
+        return repository.getById(id);
+    }
+
+    public void deleteTrade(Integer id) {
+        repository.deleteById(id);
+    }
 }

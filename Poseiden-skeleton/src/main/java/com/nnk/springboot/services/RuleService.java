@@ -20,4 +20,22 @@ public class RuleService {
     }
 
 
+    public List<RuleName> getAllRuleNames() {
+        return repository.findAll();
+    }
+
+    public RuleName saveRuleName(RuleName ruleName) {
+
+    return repository.save(ruleName);
+    }
+
+    public RuleName getRuleNameById(Integer id) {
+        RuleName ruleName = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+
+        return ruleName;
+    }
+
+    public void deleteRuleName(Integer id) {
+        repository.deleteById(id);
+    }
 }

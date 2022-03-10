@@ -2,6 +2,7 @@ package com.nnk.springboot.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @Table(name = "rating")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Rating {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -22,8 +24,11 @@ public class Rating {
     private Integer orderNumber;
 
 
-    public Rating(String moodys_rating, String sand_pRating, String fitch_rating, int i) {
-
+    public Rating(String moodysRating, String sandPRating, String fitchRating, int orderNumber) {
+        this.moodysRating =moodysRating;
+        this.sandPRating = sandPRating;
+        this.fitchRating = fitchRating;
+        this.orderNumber =orderNumber;
     }
     // TODO: Map columns in data table RATING with corresponding java fields
 }

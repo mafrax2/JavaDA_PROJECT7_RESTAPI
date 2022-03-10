@@ -18,7 +18,42 @@
 			<!--
 			TODO: Create a form to input the values of Rating, there are 2 buttons: Save data and Cancel to the list Rating
 			 -->
+			<div class="form-group">
+				<label for="moodysRatingInput">moodys Rating</label>
+				<br>
+				<input
+						type="text" th:field="*{moodysRating}" class="form-control" id="moodysRatingInput"
+						aria-describedby="moodysRatingHelp" placeholder="moodys Rating">
+<!--				<div th:if="${#fields.hasErrors('ratingId')}" th:errors="*{moodysRating}">moodysRating can not be null</div>-->
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="sandPRatingInput">Term</label>
+				<br>
+				<input
+						type="text" th:field="*{sandPRating}" class="form-control" id="sandPRatingInput"
+						aria-describedby="sandPRatingHelp" placeholder="Term">
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="fitchRatingInput">Value</label>
+				<br>
+				<input
+						type="text" th:field="*{fitchRating}" class="form-control" id="fitchRatingInput"
+						aria-describedby="fitchRatingHelp" placeholder="fitchRating">
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="orderInput">order Number</label>
+				<br>
+				<input
+						type="text" th:field="*{orderNumber}" class="form-control" id="orderInput"
+						aria-describedby="orderHelp" placeholder="order">
+								<div th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></div>
 
+			</div>
+
+			<button type="submit" class="btn btn-primary">Add</button>
 		</form>
 	</div>
 
