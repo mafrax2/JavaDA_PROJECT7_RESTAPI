@@ -24,7 +24,7 @@
 				<input
 						type="text" th:field="*{name}" class="form-control" id="nameInput"
 						aria-describedby="nameHelp" placeholder="name">
-				<!--				<div th:if="${#fields.hasErrors('ratingId')}" th:errors="*{moodysRating}">moodysRating can not be null</div>-->
+				<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
 			</div>
 			<br>
 			<div class="form-group">
@@ -33,6 +33,7 @@
 				<input
 						type="text" th:field="*{description}" class="form-control" id="descriptionInput"
 						aria-describedby="descriptionHelp" placeholder="Term">
+				<p class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
 			</div>
 			<br>
 			<div class="form-group">
@@ -41,6 +42,7 @@
 				<input
 						type="text" th:field="*{json}" class="form-control" id="jsonInput"
 						aria-describedby="jsonHelp" placeholder="json">
+				<p class="text-danger" th:if="${#fields.hasErrors('json')}" th:errors="*{json}"></p>
 			</div>
 			<br>
 			<div class="form-group">
@@ -49,7 +51,7 @@
 				<input
 						type="text" th:field="*{template}" class="form-control" id="templateInput"
 						aria-describedby="templateHelp" placeholder="order">
-				<div th:if="${#fields.hasErrors('template')}" th:errors="*{template}"></div>
+				<p class="text-danger" th:if="${#fields.hasErrors('template')}" th:errors="*{template}"></p>
 
 			</div>
 			<br>
@@ -59,7 +61,7 @@
 				<input
 						type="text" th:field="*{sqlStr}" class="form-control" id="sqlInput"
 						aria-describedby="sqlHelp" placeholder="sql">
-				<div th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}"></div>
+				<p class="text-danger" th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}"></p>
 
 			</div>
 			<br>

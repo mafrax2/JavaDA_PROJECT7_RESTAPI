@@ -25,7 +25,7 @@
 				<input
 						type="text" th:field="*{moodysRating}" class="form-control" id="moodysRatingInput"
 						aria-describedby="moodysRatingHelp" placeholder="moodys Rating">
-				<!--				<div th:if="${#fields.hasErrors('ratingId')}" th:errors="*{moodysRating}">moodysRating can not be null</div>-->
+				<p class="text-danger" th:if="${#fields.hasErrors('moodysRating')}" th:errors="*{moodysRating}"></p>
 			</div>
 			<br>
 			<div class="form-group">
@@ -34,6 +34,8 @@
 				<input
 						type="text" th:field="*{sandPRating}" class="form-control" id="sandPRatingInput"
 						aria-describedby="sandPRatingHelp" placeholder="Term">
+				<p class="text-danger" th:if="${#fields.hasErrors('sandPRating')}" th:errors="*{sandPRating}"></p>
+
 			</div>
 			<br>
 			<div class="form-group">
@@ -42,6 +44,8 @@
 				<input
 						type="text" th:field="*{fitchRating}" class="form-control" id="fitchRatingInput"
 						aria-describedby="fitchRatingHelp" placeholder="fitchRating">
+				<p class="text-danger" th:if="${#fields.hasErrors('fitchRating')}" th:errors="*{fitchRating}"></p>
+
 			</div>
 			<br>
 			<div class="form-group">
@@ -51,6 +55,8 @@
 						type="text" th:field="*{orderNumber}" class="form-control" id="orderInput"
 						aria-describedby="orderHelp" placeholder="order">
 				<div th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></div>
+				<p class="text-danger" th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></p>
+
 
 			</div>
 

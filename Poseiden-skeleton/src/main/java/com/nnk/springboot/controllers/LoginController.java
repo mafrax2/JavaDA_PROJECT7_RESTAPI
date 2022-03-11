@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @Log4j2
 @RequestMapping("app")
@@ -33,12 +35,12 @@ public class LoginController {
         return mav;
     }
 
-    @GetMapping("error")
-    public ModelAndView error() {
-        ModelAndView mav = new ModelAndView();
-        String errorMessage= "You are not authorized for the requested data.";
-        mav.addObject("errorMsg", errorMessage);
-        mav.setViewName("403");
-        return mav;
-    }
+//    @RequestMapping("/error")
+//    public ModelAndView error(HttpServletRequest request) {
+//        ModelAndView mav = new ModelAndView();
+//        String errorMessage= "You are not authorized for the requested data.";
+//        mav.addObject("errorMsg", errorMessage);
+//        mav.setViewName("403");
+//        return mav;
+//    }
 }

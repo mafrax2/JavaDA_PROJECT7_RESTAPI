@@ -18,9 +18,13 @@ public class Rating {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+    @NotNull
     private String moodysRating;
+    @NotNull
     private String sandPRating;
+    @NotNull
     private String fitchRating;
+    @NotNull
     private Integer orderNumber;
 
 

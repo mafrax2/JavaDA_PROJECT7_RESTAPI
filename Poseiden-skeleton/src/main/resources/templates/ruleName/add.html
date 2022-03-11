@@ -18,62 +18,66 @@
 			<!--
 			TODO: Create a form to input the values of RuleName, there are 2 buttons: Save data and Cancel to the list RuleName
 			 -->
-			<div class="form-group">
-				<label for="nameInput">name</label>
+			<form action="#" th:action="@{/ruleName/update/{id}(id=${ruleName.id})}" th:object="${ruleName}" method="post" class="form-horizontal" style="width: 100%">
+				<!--
+                TODO: Create a form to edit the values of RuleName, there are 2 buttons: Update data and Cancel to the RuleName
+                 -->
+				<div class="form-group">
+					<label for="nameInput">name</label>
+					<br>
+					<input
+							type="text" th:field="*{name}" class="form-control" id="nameInput"
+							aria-describedby="nameHelp" placeholder="name">
+					<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+				</div>
 				<br>
-				<input
-						type="text" th:field="*{name}" class="form-control" id="nameInput"
-						aria-describedby="nameHelp" placeholder="name">
-				<!--				<div th:if="${#fields.hasErrors('ratingId')}" th:errors="*{moodysRating}">moodysRating can not be null</div>-->
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="descriptionInput">description</label>
+				<div class="form-group">
+					<label for="descriptionInput">description</label>
+					<br>
+					<input
+							type="text" th:field="*{description}" class="form-control" id="descriptionInput"
+							aria-describedby="descriptionHelp" placeholder="Term">
+					<p class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+				</div>
 				<br>
-				<input
-						type="text" th:field="*{description}" class="form-control" id="descriptionInput"
-						aria-describedby="descriptionHelp" placeholder="Term">
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="jsonInput">json</label>
+				<div class="form-group">
+					<label for="jsonInput">json</label>
+					<br>
+					<input
+							type="text" th:field="*{json}" class="form-control" id="jsonInput"
+							aria-describedby="jsonHelp" placeholder="json">
+					<p class="text-danger" th:if="${#fields.hasErrors('json')}" th:errors="*{json}"></p>
+				</div>
 				<br>
-				<input
-						type="text" th:field="*{json}" class="form-control" id="jsonInput"
-						aria-describedby="jsonHelp" placeholder="json">
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="templateInput">template</label>
-				<br>
-				<input
-						type="text" th:field="*{template}" class="form-control" id="templateInput"
-						aria-describedby="templateHelp" placeholder="order">
-				<div th:if="${#fields.hasErrors('template')}" th:errors="*{template}"></div>
+				<div class="form-group">
+					<label for="templateInput">template</label>
+					<br>
+					<input
+							type="text" th:field="*{template}" class="form-control" id="templateInput"
+							aria-describedby="templateHelp" placeholder="order">
+					<p class="text-danger" th:if="${#fields.hasErrors('template')}" th:errors="*{template}"></p>
 
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="sqlInput">sql</label>
+				</div>
 				<br>
-				<input
-						type="text" th:field="*{sqlStr}" class="form-control" id="sqlInput"
-						aria-describedby="sqlHelp" placeholder="sql">
-				<div th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}"></div>
+				<div class="form-group">
+					<label for="sqlInput">sql</label>
+					<br>
+					<input
+							type="text" th:field="*{sqlStr}" class="form-control" id="sqlInput"
+							aria-describedby="sqlHelp" placeholder="sql">
+					<p class="text-danger" th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}"></p>
 
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="sqlPartInput">sqlPart</label>
+				</div>
 				<br>
-				<input
-						type="text" th:field="*{sqlPart}" class="form-control" id="sqlPartInput"
-						aria-describedby="sqlPartHelp" placeholder="sqlPart">
-				<div th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}"></div>
-
-			</div>
-
-			<button type="submit" class="btn btn-primary">Add</button>
+				<div class="form-group">
+					<label for="sqlPartInput">sqlPart</label>
+					<br>
+					<input
+							type="text" th:field="*{sqlPart}" class="form-control" id="sqlPartInput"
+							aria-describedby="sqlPartHelp" placeholder="sqlPart">
+					<div th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}"></div>
+					<button type="submit" class="btn btn-primary">Add</button>
+				</div>
 		</form>
 	</div>
 

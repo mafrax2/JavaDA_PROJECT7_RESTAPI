@@ -30,6 +30,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/*").permitAll()
                 .antMatchers("/user/*").permitAll()
+                .antMatchers("/*/delete/*").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/bidList/list", true)

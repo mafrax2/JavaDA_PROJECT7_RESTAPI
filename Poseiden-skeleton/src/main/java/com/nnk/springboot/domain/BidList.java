@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Required;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -21,8 +22,11 @@ public class BidList {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer bidListId;
+    @NotNull
     private String type;
+    @NotNull
     private String account;
+    @NotNull
     private Double bidQuantity;
     private Double askQuantity;
     private Double bid;

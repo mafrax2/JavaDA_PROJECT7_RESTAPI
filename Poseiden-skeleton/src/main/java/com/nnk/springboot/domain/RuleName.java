@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
@@ -18,11 +19,17 @@ public class RuleName {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+    @NotNull
     private String name;
+    @NotNull
     private String description;
+    @NotNull
     private String json;
+    @NotNull
     private String template;
+    @NotNull
     private String sqlStr;
+    @NotNull
     private String sqlPart;
 
     public RuleName(String ruleName, String description, String json, String template, String sql, String sqlPart) {

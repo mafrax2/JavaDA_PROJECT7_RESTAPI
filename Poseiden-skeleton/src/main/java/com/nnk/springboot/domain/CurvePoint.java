@@ -23,7 +23,9 @@ public class CurvePoint {
     @NotNull
     private Integer curveId;
     private Timestamp asOfDate;
+    @NotNull
     private Double term;
+    @NotNull
     private Double value;
     private Timestamp creationDate;
 
