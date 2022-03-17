@@ -19,17 +19,17 @@ public class RuleName {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String name;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String description;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String json;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String template;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String sqlStr;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String sqlPart;
 
     public RuleName(String ruleName, String description, String json, String template, String sql, String sqlPart) {

@@ -7,14 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class UserService {
 
-    @Autowired
-    private UserRepository repository;
+public interface UserService {
 
-    public List<User> getAllUsers(){
-        return repository.findAll();
-    }
+    List<User> getAllUsers();
 
 }

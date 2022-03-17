@@ -7,25 +7,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class TradeService {
 
-    @Autowired
-    private TradeRepository repository;
+public interface TradeService {
 
-    public List<Trade> getAllTrades(){
-        return repository.findAll();
-    }
 
-    public Trade saveTrade(Trade trade) {
-        return repository.save(trade);
-    }
 
-    public Trade getTradeById(Integer id) {
-        return repository.getById(id);
-    }
+     List<Trade> getAllTrades();
 
-    public void deleteTrade(Integer id) {
-        repository.deleteById(id);
-    }
+     Trade saveTrade(Trade trade);
+
+     Trade getTradeById(Integer id);
+
+     void deleteTrade(Integer id);
 }

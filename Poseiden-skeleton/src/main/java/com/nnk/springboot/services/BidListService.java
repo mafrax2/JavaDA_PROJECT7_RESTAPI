@@ -7,28 +7,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class BidListService {
 
-        @Autowired
-        private BidListRepository repository;
+public interface BidListService {
 
+        List<BidList> getAllBids();
 
-        public List<BidList> getAllBids(){
-            return repository.findAll();
-        }
+        BidList getBidListById(int id) throws Exception;
+        void deleteBidListById(int id);
 
-        public BidList getBidListById(int id) throws Exception {
-            return repository.findById(id).orElseThrow(() -> new Exception("BidList not found"));
-        }
-
-        public void deleteBidListById(int id){
-            repository.deleteById(id);
-        }
-
-        public BidList saveBid(BidList bid){
-            return repository.save(bid);
-        }
+        BidList saveBid(BidList bid);
 
 
 }

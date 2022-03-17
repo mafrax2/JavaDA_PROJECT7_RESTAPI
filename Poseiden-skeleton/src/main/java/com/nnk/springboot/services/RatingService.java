@@ -7,27 +7,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class RatingService {
 
-    @Autowired
-    private RatingRepository repository;
+public interface RatingService {
 
+     List<Rating> getAllRatings();
 
-    public List<Rating> getAllRatings(){
-        return repository.findAll();
-    }
+     Rating getRatingById(int id);
 
-    public Rating getRatingById(int id) {
-        return repository.getById(id);
-    }
+     Rating saveRating(Rating rating);
 
-    public Rating saveRating(Rating rating) {
-        return repository.save(rating);
-    }
-
-    public void deleteRating(int id){
-        repository.deleteById(id);
-    }
+     void deleteRating(int id);
 
 }

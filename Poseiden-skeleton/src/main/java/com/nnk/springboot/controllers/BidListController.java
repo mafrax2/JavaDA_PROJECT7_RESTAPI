@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 
@@ -22,12 +23,16 @@ import java.util.List;
 public class BidListController {
     // TODO: Inject Bid service
 
-    @Autowired
-    private BidListService service;
+    private final BidListService service;
+
+    public BidListController(BidListService service) {
+        this.service = service;
+    }
 
     @RequestMapping("/bidList/list")
-    public String home(Model model)
+    public String home(Model model, Principal user)
     {
+        System.out.println(user);
         List<BidList> allBids = service.getAllBids();
 
         model.addAttribute("allBids", allBids);
@@ -70,7 +75,8 @@ public class BidListController {
     }
 
     @GetMapping("/bidList/delete/{id}")
-    public String deleteBid(@PathVariable("id") Integer id, Model model) {
+    public String deleteBid(@PathVariable("id") Integer id, Model model, Principal user) {
+        System.out.println(user);
         // TODO: Find Bid by Id and delete the bid, return to Bid list
         service.deleteBidListById(id);
         log.info("bidList"  + id +  "has been deleted in DB");

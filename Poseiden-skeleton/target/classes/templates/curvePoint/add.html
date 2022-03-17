@@ -24,7 +24,7 @@
 				<input
 						type="text" th:field="*{curveId}" class="form-control" id="curveIdInput"
 						aria-describedby="curveIdHelp" placeholder="curve id">
-						<div th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}">curveId can not be null</div>
+				<p class="text-danger" th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}"></p>
 			</div>
 			<br>
 			<div class="form-group">

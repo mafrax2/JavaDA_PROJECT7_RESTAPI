@@ -8,34 +8,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class RuleService {
 
-    @Autowired
-    private RuleNameRepository repository;
+public interface RuleService {
 
-
-    public List<RuleName> getAllRules(){
-        return repository.findAll();
-    }
+     List<RuleName> getAllRules();
 
 
-    public List<RuleName> getAllRuleNames() {
-        return repository.findAll();
-    }
+     List<RuleName> getAllRuleNames();
 
-    public RuleName saveRuleName(RuleName ruleName) {
+     RuleName saveRuleName(RuleName ruleName);
 
-    return repository.save(ruleName);
-    }
+     RuleName getRuleNameById(Integer id);
 
-    public RuleName getRuleNameById(Integer id) {
-        RuleName ruleName = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-
-        return ruleName;
-    }
-
-    public void deleteRuleName(Integer id) {
-        repository.deleteById(id);
-    }
+     void deleteRuleName(Integer id);
 }

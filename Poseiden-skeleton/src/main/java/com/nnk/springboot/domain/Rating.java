@@ -18,13 +18,13 @@ public class Rating {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String moodysRating;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String sandPRating;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private String fitchRating;
-    @NotNull
+    @NotBlank(message = "Username is mandatory")
     private Integer orderNumber;
 
 

@@ -75,7 +75,7 @@
 					<input
 							type="text" th:field="*{sqlPart}" class="form-control" id="sqlPartInput"
 							aria-describedby="sqlPartHelp" placeholder="sqlPart">
-					<div th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}"></div>
+					<p class="text-danger" th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}"></p>
 					<button type="submit" class="btn btn-primary">Add</button>
 				</div>
 		</form>
