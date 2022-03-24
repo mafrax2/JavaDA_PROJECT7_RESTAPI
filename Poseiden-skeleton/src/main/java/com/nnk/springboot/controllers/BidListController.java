@@ -48,12 +48,14 @@ public class BidListController {
     }
 
     @PostMapping("/bidList/validate")
-    public ModelAndView validate(@Valid BidList bid, BindingResult result, Model model) {
+    public String validate(@Valid BidList bid, BindingResult result, Model model) {
         // TODO: check data valid and save to db, after saving return bid list
-
+        if (result.hasErrors()) {
+            return "/bidList/add";
+        }
         service.saveBid(bid);
         log.info("bidList"  + bid.getBidListId() +  "has been added in DB");
-        return new ModelAndView("redirect:/bidList/list");
+        return "redirect:/bidList/list";
     }
 
     @GetMapping("/bidList/update/{id}")
@@ -68,6 +70,10 @@ public class BidListController {
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
                              BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "bidList/update";
+        }
+
         bidList.setBidListId(id);
         service.saveBid(bidList);
         log.info("bidList"  + id +  "has been updated in DB");

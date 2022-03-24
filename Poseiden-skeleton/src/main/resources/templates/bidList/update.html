@@ -21,6 +21,8 @@
 				<input
 						type="text" th:field="*{account}" class="form-control" id="accountInput"
 						aria-describedby="accountHelp" placeholder="Account">
+				<p class="text-danger" th:if="${#fields.hasErrors('account')}" th:errors="*{account}"></p>
+
 			</div>
 			<br>
 			<div class="form-group">
@@ -29,6 +31,8 @@
 				<input
 						type="text" th:field="*{type}" class="form-control" id="typeInput"
 						aria-describedby="typeHelp" placeholder="Type">
+				<p class="text-danger" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></p>
+
 			</div>
 			<br>
 			<div class="form-group">
@@ -37,6 +41,8 @@
 				<input
 						type="text" th:field="*{bidQuantity}" class="form-control" id="amountInput"
 						aria-describedby="mailHelp" placeholder="Amount">
+				<p class="text-danger" th:if="${#fields.hasErrors('bidQuantity')}" th:errors="*{bidQuantity}"></p>
+
 			</div>
 
 			<button type="submit" class="btn btn-primary">Edit</button>

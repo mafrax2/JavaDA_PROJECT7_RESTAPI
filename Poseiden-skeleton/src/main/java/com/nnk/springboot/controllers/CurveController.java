@@ -46,7 +46,7 @@ public class CurveController {
         // TODO: check data valid and save to db, after saving return Curve list
 
         if (result.hasErrors()) {
-            return new ModelAndView("redirect:/curvePoint/add");
+            return new ModelAndView("/curvePoint/add");
         }
 
         service.saveCurvePoint(curvePoint);
